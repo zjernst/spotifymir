@@ -1,0 +1,72 @@
+<form action="{% url 'annotations:submit' %}" method="post">
+{% csrf_token %}
+<fieldset>
+	<legend><h1>{{ track_title }}</h1></legend>
+	<p>Artist: {{ track_artist }}</p>
+	<p>Album: {{ track_album }}</p>
+	<input type='hidden' name='track_title' value="{{ track_title }}">
+	<input type='hidden' name='track_artist' value="{{ track_artist }}">
+	<input type='hidden' name='track_album' value="{{ track_album }}">
+	<input type='hidden' name='spotify_id' value="{{ spotify_id }}">
+	<input type="hidden" name="track_number" value="{{ track_number }}">
+	<input type="hidden" name="total_tracks" value="{{ total_tracks }}">
+
+
+	{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+	<input type="range" id="range_valence" name="range_valence" min="-1" max="1" step="0.01" value="0" oninput="this.form.amount_valence.value=this.value">
+	<label for="valence">Valence</label>
+	<input type="number" name="amount_valence" min="-1" max="1" step="0.01" value="0" oninput="this.form.range_valence.value=this.value"><br>
+
+	<input type="range" id="range_energy" name="range_energy" min="-1" max="1" step="0.01" value="0" oninput="this.form.amount_energy.value=this.value">
+	<label for="energy">Energy</label>
+	<input type="number" name="amount_energy" min="-1" max="1" step="0.01" value="0" oninput="this.form.range_energy.value=this.value">
+
+	<div><p>GEMS Categories</p>
+		<input type="checkbox" name="amazement" value=True>
+		<label for="amazement">amazement</label><br>
+
+		<input type="checkbox" name="solemnity" value=True>
+		<label for="solemnity">solemnity</label><br>
+
+		<input type="checkbox" name="tenderness" value="True">
+		<label for="tenderness">tenderness</label><br>
+
+		<input type="checkbox" name="nostalgia" value="True">
+		<label for="nostalgia">nostalgia</label><br>
+
+		<input type="checkbox" name="calmness" value="True">
+		<label for="calmness">calmness</label><br>
+
+		<input type="checkbox" name="power" value="True">
+		<label for="power">power</label><br>
+
+		<input type="checkbox" name="joy" value="True">
+		<label for="joy">joy</label><br>
+
+		<input type="checkbox" name="tension" value="True">
+		<label for="tension">tension</label><br>
+
+		<input type="checkbox" name="sadness" value="True">
+		<label for="sadness">sadness</label><br>
+	</div>
+
+	<div>
+		<p>MIREX Mood Clusters</p>
+		<input type="radio" name="mirex" value="passionate">
+		<label for="passionate">passionate, rousing, confident, boisterous, rowdy</label><br>
+
+		<input type="radio" name="mirex" value="cheerful">
+		<label for="cheerful">rollicking, cheerful, fun, sweet, amiablle, good natured</label><br>
+
+		<input type="radio" name="mirex" value="bittersweet">
+		<label for="bittersweet">literate, poignant, wistful, bittersweet, autumnal, brooding</label><br>
+
+		<input type="radio" name="mirex" value="humorous>">
+		<label for="humorous">humorous, silly, campy, quirky, whimsical, witty, wry</label><br>
+
+		<input type="radio" name="mirex" value="aggressive">
+		<label for="aggressive">aggressive, fiery, tense, anxious, intense, volatile, visceral</label>
+	</div>
+</fieldset>
+<input type="submit" name="submit" value="Submit">
+</form>
