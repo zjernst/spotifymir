@@ -9,6 +9,11 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+import environ
+env = environ.Env()
+environ.Env.read_env()
+CLIENT_ID=env('CLIENT_ID')
+CLIENT_SECRET=env('CLIENT_SECRET')
 
 from pathlib import Path
 
