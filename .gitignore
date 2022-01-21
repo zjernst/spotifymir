@@ -60,6 +60,10 @@ coverage.xml
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+<<<<<<< HEAD
+=======
+annotations/__pycache__/
+>>>>>>> early-branch
 
 # Flask stuff:
 instance/
@@ -126,4 +130,8 @@ venv.bak/
 dmypy.json
 
 # Pyre type checker
+<<<<<<< HEAD
 .pyre/
+=======
+.pyre/
+>>>>>>> early-branch
